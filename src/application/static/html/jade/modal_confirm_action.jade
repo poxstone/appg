@@ -1,0 +1,13 @@
+.esmg-modal-wrapper
+  .message-box
+    .info-header
+      h3.title-info.mdl-typography--headline(ng-if='modal_confirm.title') {[{modal_confirm.title}]}
+        .text-a-center(ng-if='modal_confirm.subtitle')
+          | &quot;
+          b {[{modal_confirm.subtitle}]}
+          | &quot;
+    .info-body
+      .mdl-grid(ng-if='modal_confirm.text') {[{modal_confirm.text}]}
+    .info-footer
+      button.mdl-button.mdl-js-button(ng-if='modal_confirm.cancelAction', ng-click='modal_confirm.cancelAction()') {[{modal_confirm.cancel_text}]}
+      button.mdl-button.mdl-js-button.mdl-button--primary(ng-if='modal_confirm.confirmAction', ng-click='modal_confirm.confirmAction()') {[{modal_confirm.confirm_text}]}

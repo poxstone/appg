@@ -1,0 +1,6 @@
+{
+    name : 'oscar',
+    last_name : 'ortiz',
+    age : 29,
+    proffession : ['designer','developer'],
+}

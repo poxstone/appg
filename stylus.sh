@@ -1,0 +1,1 @@
+sudo stylus -u nib -w ~/workspace/src/application/static/css/style.styl
