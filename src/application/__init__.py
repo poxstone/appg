@@ -14,8 +14,8 @@ if os.getenv('FLASK_CONF') == 'TEST':
 
 elif 'SERVER_SOFTWARE' in os.environ and os.environ['SERVER_SOFTWARE'].startswith('Dev'):
     # Development settings
-    #app.config.from_object('application.settings.Production')
-    app.config.from_object('application.settings.Development')
+    app.config.from_object('application.settings.Production')
+    #app.config.from_object('application.settings.Development')
     # Flask-DebugToolbar
     toolbar = DebugToolbarExtension(app)
 

@@ -1,0 +1,31 @@
+doctype html
+html(ng-app="myApp")
+head
+  title appengine + NDB + Angular CRUD
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+  link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+  link#efor-style(rel='stylesheet', href='/static/css/style.css')
+  //
+    script(src='//code.jquery.com/jquery-2.1.1.min.js')
+    link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css")
+    script(src='//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
+  //
+  link(rel="stylesheet", href="/static/components/Materialize/dist/css/materialize.min.css")
+  script(defer, src="/static/components/jquery/dist/jquery.min.js")
+  script(defer, src="/static/components/Materialize/dist/js/materialize.min.js")
+
+body
+  .navbar-fixed
+    nav
+      .nav-wrapper
+        a.brand-logo(href="#") Logo
+        ul#nav-mobile.right.hide-on-med-and-down
+          -each i in [1,2,3,4,5,6]
+            li: a(href="sass.html") <i class="material-icons">view_module</i> Sass
+  .row
+    .col.s12
+      | hola
+      .waves-effect.waves-light.white.text-blue.btn botton
+  footer.fixed-action-btn(style="bottom: 45px; right: 24px;")
+    .btn-floating.btn-large.red
+      i.large.material-icons mode_edit

@@ -13,7 +13,7 @@ from application.views.public.public_index import PublicIndex
 from application.views.public.public_say_hello import PublicSayHello
 
 from application.views.admin.admin_list_examples import AdminListExamples, PIni,\
-    PIni_list, PIni_delete, PIni_put, PIni_update
+    PIni_list, PIni_delete, PIni_put, PIni_update, PIni2
 from application.views.admin.admin_list_examples_cached import AdminListExamplesCached
 from application.views.admin.admin_secret import AdminSecret
 from application.views.admin.admin_edit_example import AdminEditExample
@@ -35,6 +35,7 @@ app.add_url_rule('/examples/<int:example_id>/edit', 'edit_example', view_func=Ad
 app.add_url_rule('/examples/<int:example_id>/delete', 'delete_example', view_func=AdminDeleteExample.as_view('delete_example'), methods=['POST'])
 
 app.add_url_rule('/ini', 'ini', view_func=PIni.as_view('ini'), methods=['GET', 'POST'])
+app.add_url_rule('/ini2', 'ini2', view_func=PIni2.as_view('ini2'), methods=['GET', 'POST'])
 app.add_url_rule('/ini_list', 'ini_list', view_func=PIni_list.as_view(''), methods=['GET', 'POST'])
 app.add_url_rule('/ini_delete', 'ini_delete', view_func=PIni_delete.as_view(''), methods=['POST','DELETE'])
 app.add_url_rule('/ini_put', 'ini_put', view_func=PIni_put.as_view(''), methods=['PUT', 'POST'])

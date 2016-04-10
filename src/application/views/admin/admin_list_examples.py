@@ -46,6 +46,15 @@ class PIni(View):
 
         return render_template('ini.html', examples=examples )
 
+class PIni2(View):
+
+    @login_required
+    def dispatch_request(self):
+        examples = ExampleModel.query()
+
+        return render_template('ini2.html', examples=examples )
+
+
 class PIni_list(View):
 
     #@login_required
