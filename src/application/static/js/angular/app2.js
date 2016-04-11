@@ -24,7 +24,7 @@ function MainController($scope, $route, $routeParams, $location, $html,
   // On load html page
   angular.element(document).ready(function () {
     loadList();
-    
+
   });
 
   // Function load list
@@ -49,7 +49,7 @@ function MainController($scope, $route, $routeParams, $location, $html,
     mn.item_to_send = {};
     };
 
-    $eforModal.open({templateUrl:'/static/html/list_add.html', type:'success',
+    $eforModal.open({templateUrl:'/static/html/list_add2.html', type:'success',
       scope: mn, onClose:callback_close });
 
   }
@@ -59,7 +59,7 @@ function MainController($scope, $route, $routeParams, $location, $html,
       mn.item_to_send = {};
     };
 
-    $eforModal.open({templateUrl:'/static/html/list_add.html', type:'success',
+    $eforModal.open({templateUrl:'/static/html/list_add2.html', type:'success',
       scope: mn, onClose:callback_close });
 
   }
@@ -237,7 +237,7 @@ function configView($interpolateProvider, $httpProvider, $provide) {
 function configRoute($routeProvider, $locationProvider) {
    $routeProvider
     .when('/list', {
-      templateUrl: '/static/html/list.html',
+      templateUrl: '/static/html/list2.html',
       controller: 'list_controller',
       resolve: {
       // I will cause a 1 second delay
@@ -247,7 +247,7 @@ function configRoute($routeProvider, $locationProvider) {
         return delay.promise;
         }
       }
-    
+
     })
     .when('/b', {
       templateUrl: '/static/html/b.html',
