@@ -4,18 +4,20 @@
   <title>appengine + NDB + Angular CRUD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="/static/components/angular-materialize/css/style.css">
-  <link id="efor-style" rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/components/Materialize/dist/css/materialize.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
   <!--
-  script(src='//code.jquery.com/jquery-2.1.1.min.js')
   link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css")
+  script(src='//code.jquery.com/jquery-2.1.1.min.js')
   script(src='//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
+  
   -->
   <!---->
   <script src="/static/components/jquery/dist/jquery.min.js"></script>
   <script src="/static/components/angular/angular.min.js"></script>
   <script src="/static/components/angular-route/angular-route.min.js"></script>
   <script src="/static/components/angular-animate/angular-animate.min.js"></script>
+  <script src="/static/components/Materialize/dist/js/materialize.min.js"></script>
   <script src="/static/components/angular-materialize/src/angular-materialize.js"></script>
   <script defer src="/static/components/efor-components/dev-tools/dev-utils-scripts.js"></script>
   <script src="/static/js/utils.js"></script>
@@ -25,12 +27,32 @@
 </head>
 <body>
   <header>
-    <input id="search" type="text" name="search">
-    <nav><a href="#/list">l List</a><br><a href="#/b">l B</a></nav>
-    <main ng-controller="mainController as mn">
-      <div ng-view></div>
-    </main>
+    <nav class="blue-grey">
+      <div class="nav-wrapper"><a class="brand-logo left">Apps</a><a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right">
+          <li><a href="#/list">list</a></li>
+          <li><a href="#/b">l-B</a></li>
+        </ul>
+        <ul id="mobile-demo" class="side-nav">
+          <li><a href="#/list">list</a></li>
+          <li><a href="#/b">l-B</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav>
+      <div class="input-field blue-grey lighten-2 text-blue-grey">
+        <input id="search" type="search" required>
+        <label for="search"><i class="material-icons">search</i></label><i class="material-icons">close</i>
+      </div>
+    </nav>
   </header>
+  <main ng-controller="mainController as mn">
+    <div ng-view></div>
+  </main>
+  <div href="#demoModal" modal ng-click="templateUrl='/static/html/list_add2.html'" class="btn">Show Modal</div>
+  <div id="demoModal" class="modal">
+    <div ng-include="templateUrl"></div>
+  </div>
   <!-- modal-->
   <div ng-controller="efModalCtrl" class="efor-modal ani-slide no-quit-button">
     <div ng-click="efmodal.close()" class="efor-modal-btn-quit"><i class="material-icons">close</i></div>

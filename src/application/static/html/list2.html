@@ -1,30 +1,30 @@
 
 <div class="overflower">
-  <table class="mdl-data-table mdl-shadow--2dp">
+  <table>
     <thead>
       <tr>
-        <th class="mdl-data-table__cell--non-numeric">ID</th>
-        <th class="mdl-data-table__cell--non-numeric">Name</th>
-        <th class="mdl-data-table__cell--non-numeric">Description</th>
-        <th class="mdl-data-table__cell--non-numeric">Add by</th>
-        <th class="mdl-data-table__cell--non-numeric">Options</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Add by</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="item in mn.list">
-        <td class="mdl-data-table__cell--non-numeric">{[{ item.example_id }]}</td>
-        <td class="mdl-data-table__cell--non-numeric">{[{ item.example_name }]}</td>
-        <td class="mdl-data-table__cell--non-numeric">{[{ item.example_description }]}</td>
-        <td class="mdl-data-table__cell--non-numeric">{[{ item.added_by.email }]}</td>
-        <td class="mdl-data-table__cell--non-numeric">
-          <button id="item_options_{[{$index}]}" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">more_vert</i></button>
-          <ul for="item_options_{[{$index}]}" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
-            <li ng-click="mn.openEditItem(item)" class="mdl-menu__item">Edit</li>
-            <li ng-click="mn.deleteIten(item)" class="mdl-menu__item">Delete</li>
+        <td>{[{ item.example_id }]}</td>
+        <td>{[{ item.example_name }]}</td>
+        <td>{[{ item.example_description }]}</td>
+        <td>{[{ item.added_by.email }]}</td>
+        <td><a href="javascript:void(0);" data-activates="demoDropdown-{[{$index + 1}]}" dropdown="dropdown" data-hover="true" class="dropdown-button"><i class="material-icons">more_vert</i></a>
+          <ul id="demoDropdown-{[{$index + 1}]}" class="dropdown-content">
+            <li><a href="javascript:void(0);" ng-click="mn.openEditItem(item)">Edit</a></li>
+            <li><a href="javascript:void(0);" ng-click="mn.deleteIten(item)">Delete</a></li>
+            <li><a href="#demoModal" modal="modal" ng-click="templateUrl='/static/html/list_add2.html'">Show Modal</a></li>
           </ul>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-<button ng-click="mn.openSaveItem()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">add</i></button>
+<div style="bottom: 45px; right: 24px;" class="fixed-action-btn"><a ng-click="mn.openSaveItem()" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></div>
