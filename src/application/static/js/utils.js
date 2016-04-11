@@ -7,7 +7,7 @@ window.realoadMDLDOM = function ($interval, callback){
     var timmer = $interval(function(){
 
         //Reload MDL components
-        componentHandler.upgradeDom();
+        // componentHandler.upgradeDom();
 
         countTime += 1;
 

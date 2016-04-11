@@ -1,43 +1,39 @@
-(function(){
+(function() {
+'use strict'
 
-var app = angular.module('myApp',['ngRoute', 'ui-notification', '$eforModal'])
-
+var app = angular.module('myApp', ['ngRoute', 'ui-notification', '$eforModal'])
 app.config(configView);
 app.config(configNotification);
 app.config(configRoute);
-
 app.service('apiRest', ['$http', '$log', 'Notification', ApiRest]);
-app.factory('changeRoute',['$rootScope', '$route', '$log', ChangeRoute]);
-
-app.controller('mainController',['$scope', '$route', '$routeParams', '$location',
+app.factory('changeRoute', ['$rootScope', '$route', '$log', ChangeRoute]);
+app.controller('mainController', ['$scope', '$route', '$routeParams', '$location',
   '$http', '$log', 'changeRoute', 'Notification', 'apiRest', 'eforModal', MainController]);
-
-app.controller('list_controller',['$scope', ListController]);
+app.controller('list_controller', ['$scope', ListController]);
 app.controller('ctl_b',['$scope', CtlB]);
 
 function MainController($scope, $route, $routeParams, $location, $html,
-  $log, changeRoute, notification, apiRest, $eforModal){
-
+  $log, changeRoute, notification, apiRest, $eforModal) {
   var mn = this;
   mn.lists;
-  mn.item_to_send = {}; // to send for add or update item
-  // mn.route = $route;mn.location = $location;mn.routeParams = $routeParams;
+  mn.item_to_send = {}; // To send for add or update item
+  // Mn.route = $route;mn.location = $location;mn.routeParams = $routeParams;
 
-  // register change template listenen
+  // Register change template listenen
   changeRoute();
-
-  // on load html page
+  // On load html page
   angular.element(document).ready(function () {
     loadList();
+
   });
 
-  // function load list
-  function loadList(){
+  // Function load list
+  function loadList() {
     var callbacks = {
-      success : function( res ){
+      success : function(res){
         mn.list = res;
       },
-      failed : function( res ){
+      failed : function(res) {
         loadList();
       }
     };
@@ -46,72 +42,70 @@ function MainController($scope, $route, $routeParams, $location, $html,
 
   }
 
-  mn.openEditItem = function(item){
-
-    // prepare item for modal edit
+  mn.openEditItem = function(item) {
+    // Prepare item for modal edit
     mn.item_to_send = angular.copy( item );
-
-    var callback_close = function(){
+    var callback_close = function() {
     mn.item_to_send = {};
     };
 
     $eforModal.open({templateUrl:'/static/html/list_add.html', type:'success',
       scope: mn, onClose:callback_close });
+
   }
 
-  mn.openSaveItem = function(){
-
-    var callback_close = function(){
+  mn.openSaveItem = function() {
+    var callback_close = function() {
       mn.item_to_send = {};
     };
 
     $eforModal.open({templateUrl:'/static/html/list_add.html', type:'success',
       scope: mn, onClose:callback_close });
+
   }
 
-  mn.saveItem = function(){
-
-    //configure callbacks functions fo APIRest
+  mn.saveItem = function() {
+    // Configure callbacks functions fo APIRest
     var callbacks = {
-      success : function( res ){
+      success : function(res) {
         loadList();
       },
-      failed : function( res ){
-        //loadList();
+      failed : function(res) {
+        // LoadList();
         $log.debug('error to save: ' + item.example_name);
       }
     };
 
-    // item_to_send = into modal form
+    // Item_to_send = into modal form
     apiRest.saveList( mn.item_to_send, callbacks );
     $eforModal.close();
     notification('Guardando...');
 
   }
 
-  mn.deleteIten = function( item ){
+  mn.deleteIten = function(item) {
     $eforModal.confirm({
       title: 'Delete item',
       subtitle: item.example_name,
       confirm_text: 'Delete',
       cancel_text: 'Cancel',
-      confirmAction: function(){
+      confirmAction: function() {
 
         var callbacks = {
-          success : function( res ){
+          success : function(res) {
             notification('Delete item: ' + item.example_name);
             loadList();
           },
-          failed : function( res ){
+          failed : function(res) {
             $log.debug('error to delete: ' + item.example_name);
           }
         };
 
-        // item_to_send = into modal form
+        // Item_to_send = into modal form
         apiRest.deleteList( item, callbacks );
 
       },
-      cancelAction: function(){
+      cancelAction: function() {
         $log.debug('Cancel delete');
       }
     });
@@ -121,26 +115,26 @@ function MainController($scope, $route, $routeParams, $location, $html,
 };
 
 //----------------------------
-function ListController($scope){
+function ListController($scope) {
   var ca = $scope;
   ca.name = 'controlador A';
 }
 
-function CtlB($scope){
+function CtlB($scope) {
   cb = $scope;
   cb.name = 'controlador B';
 }
 
 // Services
-function ApiRest( $http, $log, notification ){
+function ApiRest( $http, $log, notification) {
 
-  this.getList = function( callbacks ){
+  this.getList = function(callbacks) {
 
     $http( {url:'/ini_list', method:'POST' } ).then(
-        function( response ){
+        function(response) {
           var res = response.data.results;
 
-          if( callbacks.success )
+          if (callbacks.success)
             callbacks.success( res );
 
           $log.debug( 'List loaded: ', response );
@@ -148,9 +142,9 @@ function ApiRest( $http, $log, notification ){
           window.realoadMDLDOM();
 
         },
-        function( response ){
+        function(response) {
 
-          if( callbacks.failed )
+          if (callbacks.failed)
             callbacks.failed( response );
 
           $log.error( 'Server issue in list: ', response );
@@ -159,7 +153,7 @@ function ApiRest( $http, $log, notification ){
       );
   };
 
-  this.saveList = function( to_send, callbacks ){
+  this.saveList = function(to_send, callbacks) {
     var data = angular.copy( to_send );
     var url = data.example_id ? '/ini_update' : '/ini_put';
     var options = {
@@ -170,28 +164,28 @@ function ApiRest( $http, $log, notification ){
     };
 
     $http( options ).then(
-        function( response ){
-          var res = response.data.results;
+      function(response) {
+        var res = response.data.results;
 
-          if( callbacks.success )
-            callbacks.success( res );
+        if (callbacks.success)
+          callbacks.success( res );
 
-          $log.debug( 'Item save: ', response );
-          notification( 'Server items saved.');
+        $log.debug( 'Item save: ', response );
+        notification( 'Server items saved.');
 
-        },
-        function( response ){
+      },
+      function(response) {
 
-          if( callbacks.failed )
-            callbacks.failed( response );
+        if (callbacks.failed)
+          callbacks.failed( response );
 
-          $log.error( 'Server issue on save item: ', response );
-          notification.error( response.statusText + ': ' + response.status );
-        }
-      );
+        $log.error( 'Server issue on save item: ', response );
+        notification.error( response.statusText + ': ' + response.status );
+      }
+    );
   };
 
-  this.deleteList = function( to_send, callbacks ){
+  this.deleteList = function(to_send, callbacks) {
     var data = angular.copy( to_send );
     $log.debug('elemento: ',data);
     var options = {
@@ -201,44 +195,46 @@ function ApiRest( $http, $log, notification ){
       data:data
     };
     $http( options ).then(
-        function( response ){
-          var res = response.data.results;
+      function(response) {
+        var res = response.data.results;
 
-          if( callbacks.success )
-            callbacks.success( res );
+        if (callbacks.success)
+          callbacks.success( res );
 
-          $log.debug( 'Item delete: ', response );
-          notification( 'Server Item delete.');
+        $log.debug( 'Item delete: ', response );
+        notification( 'Server Item delete.');
 
-        },
-        function( response ){
+      },
+      function(response) {
 
-          if( callbacks.failed )
-            callbacks.failed( response );
+        if (callbacks.failed)
+          callbacks.failed( response );
 
-          $log.error( 'Server issue on delete item: ', response );
-          notification.error( response.statusText + ': ' + response.status );
-        }
-      );
+        $log.error( 'Server issue on delete item: ', response );
+        notification.error( response.statusText + ': ' + response.status );
+      }
+    );
   };
 
 }
 
-function ChangeRoute( $rootScope, $route, $log ){
+function ChangeRoute( $rootScope, $route, $log) {
   return function() {
-    $rootScope.$on( '$routeChangeSuccess', function(){
+    $rootScope.$on( '$routeChangeSuccess', function() {
       $log.debug('change route: ', $route.current.loadedTemplateUrl );
     });
+
   }
-}
+};
 
 // Configurators
 function configView($interpolateProvider, $httpProvider, $provide) {
   $interpolateProvider.startSymbol('{[{');
   $interpolateProvider.endSymbol('}]}');
+
 };
 
-function configRoute($routeProvider, $locationProvider){
+function configRoute($routeProvider, $locationProvider) {
    $routeProvider
     .when('/list', {
       templateUrl: '/static/html/list.html',
@@ -251,25 +247,26 @@ function configRoute($routeProvider, $locationProvider){
         return delay.promise;
         }
       }
+    
     })
     .when('/b', {
       templateUrl: '/static/html/b.html',
       controller: 'ctl_b',
     })
     .otherwise({
-        redirectTo: '/list'
+      redirectTo: '/list'
     });
 };
 
 function configNotification (NotificationProvider) {
     NotificationProvider.setOptions({
-        delay: 5000,
-        startTop: 20,
-        startRight: 20,
-        verticalSpacing: 10,
-        horizontalSpacing: 10,
-        positionX: 'left',
-        positionY: 'bottom'
+      delay: 5000,
+      startTop: 20,
+      startRight: 20,
+      verticalSpacing: 10,
+      horizontalSpacing: 10,
+      positionX: 'left',
+      positionY: 'bottom'
     });
 };
 

@@ -4,6 +4,7 @@
   <title>appengine + NDB + Angular CRUD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/static/components/angular-materialize/css/style.css">
   <link id="efor-style" rel="stylesheet" href="/static/css/style.css">
   <!--
   script(src='//code.jquery.com/jquery-2.1.1.min.js')
@@ -11,31 +12,28 @@
   script(src='//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
   -->
   <!---->
-  <link rel="stylesheet" href="/static/components/Materialize/dist/css/materialize.min.css">
-  <script defer src="/static/components/jquery/dist/jquery.min.js"></script>
-  <script defer src="/static/components/Materialize/dist/js/materialize.min.js"></script>
+  <script src="/static/components/jquery/dist/jquery.min.js"></script>
+  <script src="/static/components/angular/angular.min.js"></script>
+  <script src="/static/components/angular-route/angular-route.min.js"></script>
+  <script src="/static/components/angular-animate/angular-animate.min.js"></script>
+  <script src="/static/components/angular-materialize/src/angular-materialize.js"></script>
+  <script defer src="/static/components/efor-components/dev-tools/dev-utils-scripts.js"></script>
+  <script src="/static/js/utils.js"></script>
+  <script src="/static/components/efor-components/angular-efor-modal/efor_modal.js"></script>
+  <script src="/static/components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+  <script src="/static/js/angular/app2.js"></script>
 </head>
 <body>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper"><a href="#" class="brand-logo">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-          <li><a href="sass.html"><i class="material-icons">view_module</i> Sass</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header>
+    <input id="search" type="text" name="search">
+    <nav><a href="#/list">l List</a><br><a href="#/b">l B</a></nav>
+    <main ng-controller="mainController as mn">
+      <div ng-view></div>
+    </main>
+  </header>
+  <!-- modal-->
+  <div ng-controller="efModalCtrl" class="efor-modal ani-slide no-quit-button">
+    <div ng-click="efmodal.close()" class="efor-modal-btn-quit"><i class="material-icons">close</i></div>
+    <div ng-include="templateUrl"></div>
   </div>
-  <div class="row">
-    <div class="col s12">hola
-      <div class="waves-effect waves-light white text-blue btn">botton</div>
-    </div>
-  </div>
-  <footer style="bottom: 45px; right: 24px;" class="fixed-action-btn">
-    <div class="btn-floating btn-large red"><i class="large material-icons">mode_edit</i></div>
-  </footer>
 </body>
