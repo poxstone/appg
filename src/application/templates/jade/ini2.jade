@@ -47,13 +47,3 @@ body
   main(ng-controller="mainController as mn")
     div(ng-view)
 
-
-  .btn(href='#demoModal', modal, ng-click="templateUrl='/static/html/list_add2.html'") Show Modal
-  #demoModal.modal
-    div(ng-include='templateUrl')
-
-  // modal
-  .efor-modal.ani-slide.no-quit-button(ng-controller="efModalCtrl")
-    .efor-modal-btn-quit(ng-click='efmodal.close()')
-        i.material-icons close
-      div(ng-include='templateUrl')

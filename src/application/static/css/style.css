@@ -2116,6 +2116,38 @@ td[ng-click] {
 .mdl-layout__header {
   display: block !important;
 }
+.debug *[ng-model],
+.debug *[ng-click],
+.debug *[ng-repeat] {
+  position: relative !important;
+  overflow: visible;
+  display: block;
+}
+.debug *[ng-model]:after,
+.debug *[ng-click]:after,
+.debug *[ng-repeat]:after {
+  content: 'm:' attr(ng-model) ', c:' attr(ng-click);
+  display: block;
+  color: #fff;
+  font-size: 10px;
+  position: absolute !important;
+  background: #9c27b0;
+  left: 0;
+  height: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+  top: 0;
+}
+.debug td[ng-model],
+.debug td[ng-click],
+.debug td[ng-repeat] {
+  display: table-cell;
+}
+.debug tr[ng-model],
+.debug tr[ng-click],
+.debug tr[ng-repeat] {
+  display: table-row;
+}
 @-moz-keyframes bg_top {
   0% {
     -webkit-transform: rotate(0deg);

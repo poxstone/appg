@@ -15,10 +15,33 @@
         a.dropdown-button(href="javascript:void(0);", data-activates="demoDropdown-{[{$index + 1}]}", dropdown, data-hover="true")
           i.material-icons more_vert
         ul.dropdown-content(id="demoDropdown-{[{$index + 1}]}")
-          li: a(href="javascript:void(0);", ng-click="mn.openEditItem(item)") Edit
-          li: a(href="javascript:void(0);", ng-click="mn.deleteIten(item)") Delete
-          li: a(href='#demoModal', modal, ng-click="templateUrl='/static/html/list_add2.html'") Show Modal
-
-.fixed-action-btn(style="bottom: 45px; right: 24px;")
-  a.btn-floating.btn-large.waves-effect.waves-light.red(ng-click="mn.openSaveItem()")
+          li: a(href='#cmmEdit', modal, ng-click="mn.openEditItem(item)") Edit
+          li: a(href='#cmmDelete', modal, ng-click="mn.openDeleteItem(item)") Delete
+.fixed-action-btn(fixed-action-btn)
+  a.btn-floating.btn-large.red(href='#cmmEdit', modal, ng-click="mn.openSaveItem()")
     i.material-icons add
+
+// edit
+#cmmEdit.modal
+  .modal-content
+    h4  Add Item
+    form(name='form', novalidate='')
+      .input-field
+        input(type='text', name='item_list_name', ng-model='mn.item_to_send.example_name')
+        label Name
+      .input-field
+        textarea(type='text', rows='2', name='item_list_description', ng-model='mn.item_to_send.example_description')
+        label Description
+    .modal-footer
+      button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='mn.saveItem(form)') Save
+      button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='mn.modalClose()') Cancel
+
+// new
+#cmmDelete.modal
+  .modal-content
+    h4  Delete item
+    form(name='form', novalidate='')
+      p Do you want delete {[{mn.item_to_send.example_description}]}
+    .modal-footer
+      button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='mn.deleteItem(form)') Delete
+      button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='mn.modalClose()') Cancel

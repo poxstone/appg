@@ -49,13 +49,4 @@
   <main ng-controller="mainController as mn">
     <div ng-view></div>
   </main>
-  <div href="#demoModal" modal ng-click="templateUrl='/static/html/list_add2.html'" class="btn">Show Modal</div>
-  <div id="demoModal" class="modal">
-    <div ng-include="templateUrl"></div>
-  </div>
-  <!-- modal-->
-  <div ng-controller="efModalCtrl" class="efor-modal ani-slide no-quit-button">
-    <div ng-click="efmodal.close()" class="efor-modal-btn-quit"><i class="material-icons">close</i></div>
-    <div ng-include="templateUrl"></div>
-  </div>
 </body>

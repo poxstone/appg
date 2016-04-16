@@ -13,3 +13,36 @@
 
 .mdl-layout__header
   display block !important
+.debug
+  *
+    &[ng-model]
+    &[ng-click]
+    &[ng-repeat]
+      position relative !important
+      overflow visible
+      display block
+
+      &:after
+        content 'm:'attr(ng-model)', c:'attr(ng-click)
+        display block
+        color #fff
+        font-size 10px
+        position absolute !important
+        background $purple
+        left 0
+        height 12px
+        line-height 12px
+        white-space nowrap
+        top 0
+
+  td
+    &[ng-model]
+    &[ng-click]
+    &[ng-repeat]
+     display table-cell
+
+  tr
+    &[ng-model]
+    &[ng-click]
+    &[ng-repeat]
+     display table-row
