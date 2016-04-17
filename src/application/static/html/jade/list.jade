@@ -1,3 +1,18 @@
+a(ng-click="mn.toDo()") HOLA
+.efor-title-search(ng-init="mn.a='lalllala'"
+                  search-input
+                  inp-placeholder="Buscar Usuario"
+                  inp-query-model="mn.a"
+                  inp-key-fun="mn.toDo(mn.a)"
+                  inp-enter-fun="mn.toDo(mn.a)"
+                  inp-clear-fun="mn.toDo()"
+                  list-model="example_id in mn.list"
+                  qlist-model="mn.arrExample"
+                  list-mdl-icon="account_circle"
+                  list-select-fun="mn.toDo(item.example_id)"
+                  list-apply-fun="mn.toDo()"
+                  )
+
 .overflower
   table.mdl-data-table.mdl-shadow--2dp
     thead: tr
