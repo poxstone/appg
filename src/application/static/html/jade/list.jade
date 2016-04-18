@@ -1,15 +1,28 @@
-a(ng-click="mn.toDo()") HOLA
-.efor-title-search(ng-init="mn.a='lalllala'"
+.efor-title-search(
                   search-input
                   inp-placeholder="Buscar Usuario"
-                  inp-query-model="mn.a"
-                  inp-key-fun="mn.toDo(mn.a)"
-                  inp-enter-fun="mn.toDo(mn.a)"
+                  inp-query-model="mn.query"
+                  inp-key-fun="mn.getExample()"
+                  inp-enter-fun="mn.getExample()"
                   inp-clear-fun="mn.toDo()"
-                  list-model="example_id in mn.list"
+                  list-model="example_id in mn.objExample"
                   qlist-model="mn.arrExample"
                   list-mdl-icon="account_circle"
-                  list-select-fun="mn.toDo(item.example_id)"
+                  list-select-fun="mn.clearExampleList()"
+                  list-apply-fun="mn.toDo()"
+                  )
+
+.efor-title-search(
+                  search-input
+                  inp-placeholder="Buscar Usuario"
+                  inp-query-model="mn.query2"
+                  inp-key-fun="mn.getExample()"
+                  inp-enter-fun="mn.getExample()"
+                  inp-clear-fun="mn.toDo()"
+                  list-model="mn.arrExample"
+                  qlist-model="mn.arrExample"
+                  list-mdl-icon="account_circle"
+                  list-select-fun="mn.clearExampleList()"
                   list-apply-fun="mn.toDo()"
                   )
 

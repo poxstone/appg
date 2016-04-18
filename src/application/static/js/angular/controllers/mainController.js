@@ -11,6 +11,9 @@
     mn.item_to_send = {}; // To send for add or update item
     // Mn.route = $route;mn.location = $location;mn.routeParams = $routeParams;
     mn.arrExample = [1,2,3,4,5,6,7,8,9,0];
+    mn.objExample = [];
+    mn.query = '';
+    mn.query2 = '';
 
     // Register change template listenen
     changeRoute();
@@ -34,6 +37,25 @@
       apiRest.getList( callbacks );
 
     }
+
+    // Function test array
+    mn.getExample = function() {
+      var callbacks = {
+        success : function(res){
+          mn.objExample = res;
+        },
+        failed : function(res) {
+          loadList();
+        }
+      };
+
+      apiRest.getList( callbacks );
+
+    };
+
+    mn.clearExampleList = function() {
+      mn.objExample = [];
+    };
 
     mn.toDo = function(item) {
       notification('notification ' + (item || 'nada'));
