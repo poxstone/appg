@@ -53,6 +53,10 @@
 
     };
 
+    mn.changeExample = function(item) {
+      mn.query2 = item;
+    }
+
     mn.clearExampleList = function() {
       mn.objExample = [];
     };
