@@ -4,10 +4,10 @@
   app.config(configView);
   app.config(configNotification);
   app.config(configRoute);
-  app.factory('changeRoute', ['$rootScope', '$route', '$log', ChangeRoute]);
+  app.factory('changeRoute', ['$rootScope', '$route', '$log', changeRoute]);
 
   // routes
-  function ChangeRoute( $rootScope, $route, $log) {
+  function changeRoute( $rootScope, $route, $log) {
     return function() {
       $rootScope.$on( '$routeChangeSuccess', function() {
         $log.debug('change route: ', $route.current.loadedTemplateUrl );

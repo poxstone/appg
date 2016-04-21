@@ -614,7 +614,7 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   filter: none;
 }
 .efor-modal.ani-slide {
-  position: relative;
+  position: absolute;
   height: 0;
   width: 100%;
 }

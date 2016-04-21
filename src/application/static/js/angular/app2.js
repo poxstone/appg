@@ -119,7 +119,7 @@ function ApiRest( $http, $log, notification) {
 
           $log.debug( 'List loaded: ', response );
           notification( res.length + ' items finded.');
-          window.realoadMDLDOM();
+          window.reloadMDLDOM();
 
         },
         function(response) {

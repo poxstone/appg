@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  app.controller('mainController', ['$scope', '$route', '$routeParams', '$location',
+  app.controller('mainController', ['$window', '$scope', '$route', '$routeParams', '$location',
     '$http', '$log', 'changeRoute', 'Notification', 'apiRest', 'eforModal', MainController]);
 
-  function MainController($scope, $route, $routeParams, $location, $html,
+  function MainController($window, $scope, $route, $routeParams, $location, $html,
     $log, changeRoute, notification, apiRest, $eforModal) {
     var mn = this;
     mn.lists;
@@ -43,6 +43,7 @@
       var callbacks = {
         success : function(res){
           mn.objExample = res;
+          $window.reloadMDLDOM();
         },
         failed : function(res) {
           loadList();

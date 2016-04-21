@@ -7,6 +7,7 @@
   form(name='form', novalidate='')
     textarea#item_list_description.mdl-textfield__input(type='text', rows='2', name='item_list_description', ng-model='scope.item_to_send.example_description')
     label.mdl-textfield__label(for='item_list_description') Description
+
   .modal-footer
     button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='efmodal.close()') Cancel
     button.modal-action.modal-close.waves-effect.waves-green.btn-flat(type='button', ng-click='scope.saveItem(form)') Save
