@@ -9,7 +9,7 @@
                   qlist-model="mn.arrExample"
                   list-mdl-icon="account_circle"
                   list-select-fun="mn.clearExampleList()"
-                  list-apply-fun="mn.toDo()"
+                  list-multiple-fun="mn.toDo()"
                   )
 
 .efor-title-search(
@@ -23,7 +23,7 @@
                   qlist-model="mn.arrExample"
                   list-mdl-icon="account_circle"
                   list-select-fun="mn.changeExample(item)"
-                  list-apply-fun="mn.toDo()"
+                  list-multiple-fun="mn.toDo()"
                   readonly
                   )
 
@@ -48,5 +48,5 @@
           li.mdl-menu__item(ng-click="mn.openEditItem(item)") Edit
           li.mdl-menu__item(ng-click="mn.deleteIten(item)") Delete
 
-button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(ng-click="mn.openSaveItem()")
+button.btn-add.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(ng-click="mn.openSaveItem()")
   i.material-icons add

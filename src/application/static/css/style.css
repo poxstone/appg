@@ -1176,12 +1176,6 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   margin-left: 0;
   margin-right: 0;
 }
-.white-box.box-noshadow .mdl-textfield,
-.white-box.box-noshadow .cont-radios,
-.white-box.box-noshadow .mdl-switch,
-.white-box.box-noshadow .mdl-checkbox {
-  box-shadow: none !important;
-}
 .white-box input[readonly] {
   color: #9e9e9e;
 }
@@ -1257,11 +1251,31 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   padding-bottom: 10px;
   background: #fff;
 }
+.white-box.box-shadow .mdl-textfield,
+.white-box.box-shadow .cont-radios,
+.white-box.box-shadow .mdl-switch,
+.white-box.box-shadow .mdl-checkbox {
+  box-shadow: rgba(0,0,0,0.15) 1px 1px 4px 0;
+}
+.white-box.box-shadow .mdl-textfield:hover,
+.white-box.box-shadow .cont-radios:hover,
+.white-box.box-shadow .mdl-switch:hover,
+.white-box.box-shadow .mdl-checkbox:hover,
+.white-box.box-shadow .mdl-textfield.is-focused,
+.white-box.box-shadow .cont-radios.is-focused,
+.white-box.box-shadow .mdl-switch.is-focused,
+.white-box.box-shadow .mdl-checkbox.is-focused {
+  box-shadow: rgba(0,0,0,0.15) 1px 1px 4px 0, rgba(0,0,0,0.2) 12px 12px 12px 0;
+}
+.white-box.box-shadow .cont-radios .mdl-checkbox,
+.white-box.box-shadow .cont-radios .mdl-checkbox.is-focused,
+.white-box.box-shadow .cont-radios .mdl-checkbox:hover {
+  box-shadow: rgba(0,0,0,0.15) 1px 1px 4px 0, rgba(0,0,0,0.2) 12px 12px 12px 0;
+}
 .white-box .mdl-textfield,
 .white-box .cont-radios,
 .white-box .mdl-switch,
 .white-box .mdl-checkbox {
-  background: #fff;
   max-width: 100%;
   display: inline-block;
   zoom: 1;
@@ -1272,18 +1286,7 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   vertical-align: top;
   border: 10px solid #fff;
   box-sizing: border-box;
-  box-shadow: rgba(0,0,0,0.15) 1px 1px 4px 0;
   transition: ease-in-out 250ms all;
-}
-.white-box .mdl-textfield:hover,
-.white-box .cont-radios:hover,
-.white-box .mdl-switch:hover,
-.white-box .mdl-checkbox:hover,
-.white-box .mdl-textfield.is-focused,
-.white-box .cont-radios.is-focused,
-.white-box .mdl-switch.is-focused,
-.white-box .mdl-checkbox.is-focused {
-  box-shadow: rgba(0,0,0,0.15) 1px 1px 4px 0, rgba(0,0,0,0.2) 12px 12px 12px 0;
 }
 .white-box .mdl-textfield.type-file .mdl-textfield__label,
 .white-box .cont-radios.type-file .mdl-textfield__label,
@@ -1311,11 +1314,6 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
 }
 .cont-radios .mdl-checkbox {
   margin: 0;
-}
-.cont-radios .mdl-checkbox,
-.cont-radios .mdl-checkbox.is-focused,
-.cont-radios .mdl-checkbox:hover {
-  box-shadow: none !important;
 }
 .white-box .mdl-textfield .mdl-button {
   width: 100%;
@@ -1429,6 +1427,11 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   transition: ease-in-out all 250ms;
   opacity: 0.3;
   z-index: 1;
+}
+.efor-title-search .ico-search.invert,
+.efor-title-search .btn-close.invert,
+.efor-title-search .ico-show.invert {
+  transform: rotate(-180deg);
 }
 .efor-title-search .btn-close,
 .efor-title-search .ico-show {
@@ -1897,14 +1900,17 @@ td[ng-click] {
 .overflower > table {
   margin-bottom: 200px;
 }
-.mini-input.mdl-textfield .mdl-textfield__label:after {
-  bottom: 20px;
-}
 table {
   width: 100%;
 }
 .mdl-layout__header {
   display: block !important;
+}
+button.btn-add {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  outerline: #ffa500 1px solid;
 }
 .debug *[ng-model],
 .debug *[ng-click],
