@@ -1,62 +1,7 @@
-<!DOCTYPE html>
-<html ng-app="myApp"></html>
-<head>
-  <title>appengine + NDB + Angular CRUD</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link id="efor-style" rel="stylesheet" href="/static/css/style.css">
-  <!---->
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-indigo.min.css">
-  <script defer src="//code.getmdl.io/1.1.3/material.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script>
-  <!--
-  link(rel='stylesheet', href='/static/components/material-design-lite/material.min.css')
-  script(src='/static/components/jquery/dist/jquery.min.js')
-  script(src='/static/components/material-design-lite/material.min.js')
-  script(src='/static/components/angular/angular.min.js')
-  script(src='/static/components/angular-route/angular-route.min.js')
-  script(src='/static/components/angular-animate/angular-animate.min.js')
-  
-  -->
-  <script defer src="/static/components/efor-components/dev-tools/dev-utils-scripts.js"></script>
-  <script src="/static/js/utils.js"></script>
-  <script src="/static/components/efor-components/angular-efor-modal/efor_modal.js"></script>
-  <script src="/static/components/efor-components/angular-search-directive/search_module.js"></script>
-  <script src="/static/components/angular-ui-notification/dist/angular-ui-notification.js"></script>
-  <!-- app angular-->
-  <script src="/static/js/angular/app.js"></script>
-  <script src="/static/js/angular/config.js"></script>
-  <script src="/static/js/angular/services/apiRest.js"></script>
-  <script src="/static/js/angular/controllers/mainController.js"></script>
-  <script src="/static/js/angular/controllers/listController.js"></script>
-  <script src="/static/js/angular/controllers/ctlB.js"></script>
-</head>
-<body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row"><span class="mdl-layout-title">Title</span>
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-          <label for="search" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label>
-          <div class="mdl-textfield__expandable-holder">
-            <input id="search" type="text" name="search" class="mdl-textfield__input">
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer"><span class="mdl-layout-title">Title</span>
-      <nav class="mdl-navigation"><a href="#/list" class="mdl-navigation__link">l List</a><a href="#/b" class="mdl-navigation__link">l B</a></nav>
-    </div>
-    <main ng-controller="mainController as mn" class="mdl-layout__content">
-      <div ng-view></div>
-    </main>
-  </div>
-  <!-- modal-->
-  <div ng-controller="efModalCtrl" class="efor-modal ani-slide no-quit-button">
-    <div ng-click="efmodal.close()" class="efor-modal-btn-quit mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"><i class="material-icons">close</i></div>
-    <div ng-include="templateUrl"></div>
-  </div>
-</body>
+<!DOCTYPE html><html ng-app="myApp"></html><head><title>appengine + NDB + Angular CRUD</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link id="efor-style" rel="stylesheet" href="/static/css/style.css"><!----><link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-indigo.min.css"><script defer src="//code.getmdl.io/1.1.3/material.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-route.min.js"></script><!--link(rel='stylesheet', href='/static/components/material-design-lite/material.min.css')
+script(src='/static/components/jquery/dist/jquery.min.js')
+script(src='/static/components/material-design-lite/material.min.js')
+script(src='/static/components/angular/angular.min.js')
+script(src='/static/components/angular-route/angular-route.min.js')
+script(src='/static/components/angular-animate/angular-animate.min.js')
+--><script defer src="/static/components/efor-components/dev-tools/dev-utils-scripts.js"></script><script src="/static/js/utils.js"></script><script src="/static/components/efor-components/angular-efor-modal/efor_modal.js"></script><script src="/static/components/efor-components/angular-search-directive/search_module.js"></script><script src="/static/components/angular-ui-notification/dist/angular-ui-notification.js"></script><!-- app angular--><script src="/static/js/angular/app.js"></script><script src="/static/js/angular/config.js"></script><script src="/static/js/angular/services/apiRest.js"></script><script src="/static/js/angular/controllers/mainController.js"></script><script src="/static/js/angular/controllers/listController.js"></script><script src="/static/js/angular/controllers/ctlB.js"></script></head><body><div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer"><header class="mdl-layout__header"><div class="mdl-layout__header-row"><span class="mdl-layout-title">Title</span><div class="mdl-layout-spacer"></div><div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right"><label for="search" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input id="search" type="text" name="search" class="mdl-textfield__input"></div></div></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title">Title</span><nav class="mdl-navigation"><a href="#/list" class="mdl-navigation__link">l List</a><a href="#/b" class="mdl-navigation__link">l B</a></nav></div><main ng-controller="mainController as mn" class="mdl-layout__content"><div ng-view></div></main></div><!-- modal--><div ng-controller="efModalCtrl" class="efor-modal ani-slide no-quit-button"><div ng-click="efmodal.close()" class="efor-modal-btn-quit mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"><i class="material-icons">close</i></div><div ng-include="templateUrl"></div></div></body>
