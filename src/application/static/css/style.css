@@ -1416,25 +1416,30 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   width: auto;
   width: 100%;
 }
-.efor-title-search .ico-search,
 .efor-title-search .btn-close,
-.efor-title-search .ico-show {
-  position: absolute;
-  z-index: 5;
-  left: 0;
-  top: 0;
-  padding: 5px 10px;
+.efor-title-search .ico-show,
+.efor-title-search .ico-search {
   transition: ease-in-out all 250ms;
   opacity: 0.3;
   z-index: 1;
 }
-.efor-title-search .ico-search.invert,
-.efor-title-search .btn-close.invert,
-.efor-title-search .ico-show.invert {
-  transform: rotate(-180deg);
+.efor-title-search .ico-search {
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+}
+.efor-title-search .cont-icos {
+  position: absolute;
+  top: 0;
+  right: 0;
+  white-space: nowrap;
+  text-align: right;
 }
 .efor-title-search .btn-close,
 .efor-title-search .ico-show {
+  padding: 5px 5px;
   left: auto;
   opacity: 0.75;
   cursor: pointer;
@@ -1546,8 +1551,8 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
 .efor-modal-wrapper .efor-slider .efor-section .efor-title-search + .mdl-textfield__label:after {
   opacity: 0;
 }
-.match-user,
-.notmatch-user {
+.efor-title-search .match-user,
+.efor-title-search .not-match-user {
   position: absolute;
   width: auto;
   background: #fff;
@@ -1558,23 +1563,24 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   box-shadow: 0 -1px 0 #e5e5e5, 0 4px 4px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.24);
   font-size: 14px;
 }
-.match-user a,
-.notmatch-user a {
+.efor-title-search .match-user a,
+.efor-title-search .not-match-user a {
   display: block;
+  position: relative;
   padding: 1px 4px;
   cursor: pointer;
   color: #455a64;
   font-weight: normal;
 }
-.match-user a:hover,
-.notmatch-user a:hover {
+.efor-title-search .match-user a:hover,
+.efor-title-search .not-match-user a:hover {
   color: #fff;
   background: #2196f3;
 }
-.notmatch-user {
+.efor-title-search .not-match-user {
   color: rgba(102,102,102,0.5);
 }
-.desplegable-list {
+.efor-title-search .desplegable-list {
   display: block;
   position: absolute;
   width: auto;
@@ -1588,40 +1594,80 @@ body > .mce-container.mce-panel table.mce-colorbutton-grid td.mce-custom-color-b
   box-shadow: 0 0 0 #e5e5e5, 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24), 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
   font-size: 14px;
   font-weight: normal;
+  max-height: 200px;
+  overflow: auto;
+  overflow-x: hidden;
 }
-.desplegable-list.hide {
-  display: none;
-  z-index: 0;
-}
-.desplegable-list.show {
-  display: block;
-  z-index: 10;
-}
-.desplegable-list .li {
+.efor-title-search .desplegable-list .li {
   display: block;
   padding: 0;
-  margin: 0;
-  padding: 1px 4px;
+  margin: 0 0 1px;
+  padding: 4px 4px;
   cursor: pointer;
   color: #455a64;
   position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.desplegable-list .li:hover {
-  color: #fff;
+.efor-title-search .desplegable-list .li.hover {
+  background: rgba(0,0,0,0.1);
+}
+.efor-title-search .desplegable-list .li:before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  opacity: 0;
   background: #2196f3;
+  box-shadow: #2196f3 0 0 1px 1px;
+  transition: ease-in-out 250ms all;
 }
-.desplegable-list .li:hover .material-icons {
+.efor-title-search .desplegable-list .li input[type="checkbox"] {
+  display: none;
+}
+.efor-title-search .desplegable-list .li.checked {
+  color: #fff;
+}
+.efor-title-search .desplegable-list .li.checked:before {
+  opacity: 1;
+}
+.efor-title-search .desplegable-list .li.checked .material-icons {
   color: #fff;
   opacity: 1;
 }
-.desplegable-list .li .material-icons {
+.efor-title-search .desplegable-list .li .material-icons {
   position: relative;
   vertical-align: middle;
   font-size: 1.4em;
 }
-.desplegable-list li.search-notmatchuser {
+.efor-title-search .desplegable-list .search-notmatchuser {
   color: rgba(102,102,102,0.5);
   padding: 0 4px;
+}
+.efor-title-search.hide-list .desplegable-list {
+  display: none;
+  z-index: 0;
+}
+.efor-title-search.show-list .desplegable-list {
+  display: block;
+  z-index: 10;
+}
+.efor-title-search.show-list .ico-show {
+  transform: rotate(-180deg);
+}
+.efor-title-search.to-hide {
+  outerline: 2px solid #ffa500;
+}
+.efor-title-search.to-hide,
+.efor-title-search.to-hide * {
+  color: #ffa500 !important;
 }
 .mdl-menu .material-icons,
 .mdl-navigation__link .material-icons {
