@@ -1,1 +1,0 @@
-jade -P -w -o ~/workspace/src/application/static/html/ ~/workspace/src/application/static/html/jade

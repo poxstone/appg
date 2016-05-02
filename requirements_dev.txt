@@ -1,5 +1,5 @@
 # Development environment pip requirements file
-# Install via 'pip install -r requirements_dev.txt'
+# Install via 'pip install -r requirements_dev.txt -r ./lib'
 
 Pillow
 jinja2

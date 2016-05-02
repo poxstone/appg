@@ -1,1 +1,0 @@
-jade -P -w -o ~/workspace/src/application/templates/ ~/workspace/src/application/templates/jade/
