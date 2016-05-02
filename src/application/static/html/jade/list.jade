@@ -1,32 +1,32 @@
-.efor-title-search(
+.efor-search(
                   search-input
                   inp-placeholder="Buscar Usuario"
                   inp-query-model="mn.query"
                   inp-key-fun="mn.getExample()"
                   inp-enter-fun="mn.getExample()"
                   inp-clear-fun="mn.toDo()"
-                  list-model="example_id in mn.objExample"
+                  list-repeat="example_id in mn.objExample | filter:'185804764220139124118':strict"
                   qlist-model="mn.arrExample"
                   list-mdl-icon="account_circle"
-                  list-select-fun="mn.clearExampleList()"
+                  qlist-select-fun="mn.clearExampleList()"
                   list-multiple-fun="mn.toDo()"
                   )
 
-.efor-title-search(
+.efor-search(
                   search-input
                   inp-placeholder="Buscar Usuario"
                   inp-query-model="mn.query2"
                   inp-key-fun="mn.getExample()"
                   inp-enter-fun="mn.getExample()"
                   inp-clear-fun="mn.toDo()"
-                  list-model="mn.arrExample"
+                  list-repeat="mn.arrExample"
                   qlist-model="mn.arrExample"
                   list-mdl-icon="account_circle"
                   list-select-fun="mn.changeExample(item)"
-                  list-multiple-fun="mn.toDo()"
+                  qlist-multiple-fun="mn.toDo()"
                   readonly
                   )
-
+pre: small {[{mn.objExample | json}]}
 .overflower
   table.mdl-data-table.mdl-shadow--2dp
     thead: tr
