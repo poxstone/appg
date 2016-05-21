@@ -2543,3 +2543,12 @@ button.btn-add {
 .ngi-inspector .ngi-collapsed .ngi-caret {
   background-position-y: 0px !important;
 }
+#Firebug div,
+#Firebug div .Row Debug,
+#Firebug div span,
+#Firebug div .Left,
+#Firebug div .Console,
+#Firebug div .Monitor,
+#Firebug div .Row {
+  font-size: 11px !important;
+}
