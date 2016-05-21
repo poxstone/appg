@@ -1,11 +1,12 @@
 (function() {
   'use strict';
 
-  app.controller('mainController', ['$window', '$scope', '$route', '$routeParams', '$location',
-    '$http', '$log', 'changeRoute', 'Notification', 'apiRest', 'eforModal', MainController]);
+  angular.module('myApp').controller('mainController', ['$window', '$scope',
+    '$route', '$routeParams', '$location', '$http', '$log', 'changeRoute',
+    'Notification', 'apiRest', 'eforModal', MainController]);
 
-  function MainController($window, $scope, $route, $routeParams, $location, $html,
-    $log, changeRoute, notification, apiRest, $eforModal) {
+  function MainController($window, $scope, $route, $routeParams, $location,
+    $html, $log, changeRoute, notification, apiRest, $eforModal) {
     var mn = this;
     mn.lists;
     mn.item_to_send = {}; // To send for add or update item

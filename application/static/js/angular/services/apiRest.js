@@ -3,8 +3,8 @@
 
   // Services
   app.service('apiRest', ['$log', '$window', '$http', 'Notification', ApiRest]);
-  function ApiRest($log, $window, $http, notification) {
 
+  function ApiRest($log, $window, $http, notification) {
     this.getList = function(callbacks) {
 
       $http( {url:'/ini_list', method:'POST' }).then(
