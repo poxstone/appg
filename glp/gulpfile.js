@@ -58,7 +58,7 @@ gulp.task('js', function() {
 gulp.task('watch', function () {
    gulp.watch('../application/static/css/stylus/*.styl', ['css']);
    gulp.watch('../application/static/css/*.styl', ['css']);
-   gulp.watch('../application/static/components/**/*.styl', ['css']);
+   gulp.watch('../../static/components/efor-components/**/*.styl', ['css']);
    gulp.watch('../application/templates/jade/*.jade', ['html']);
    gulp.watch('../application/static/html/jade/*.jade', ['html2']);
 });

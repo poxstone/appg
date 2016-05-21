@@ -39,5 +39,8 @@ handlers:
 - url: /static
   static_dir: application/static
 
+- url: /efor-components
+  static_dir: ../efor-components
+
 - url: .*
   script: run.application.app

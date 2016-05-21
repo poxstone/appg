@@ -1852,35 +1852,173 @@ td[ng-click] {
   border-bottom: 1px #ccc solid;
 }
 *[loading-widget] {
-  background: rgba(255,255,255,0.75);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;
   width: 100%;
-  height: 100%;
+  height: 0;
   box-sizing: border-box;
   z-index: 1000;
-  text-align: denter;
-  transition: ease-in-out 1s all;
-  opacity: 1;
+  text-align: center;
+  transition: ease-in-out 1s opacity;
 }
 *[loading-widget][style*="display: none"] {
   display: block !important;
-  opacity: 0;
-  z-index: -1;
+  color: #f00;
 }
-*[loading-widget] .message {
-  position: relative;
+*[loading-widget][style="display: block;"] {
+  z-index: 9999;
+  color: #00f;
+}
+*[loading-widget][style="display: block;"] .tag-loading {
   display: block;
+  opacity: 1;
+  top: 0px;
+}
+*[loading-widget][style="display: block;"].pass .tag-loading {
+  opacity: 0;
+  display: none;
+}
+*[loading-widget] .tag-loading {
+  top: -50px;
+  opacity: 0;
+  display: block;
+  transition: ease-in-out 1.25s all;
+}
+*[loading-widget] .tag-loading,
+*[loading-widget] .tag-block-screen {
   margin: 10px auto;
-  max-width: 250px;
+  position: absolute;
+  background: #fff0b5;
+  color: #333;
   text-align: center;
-  border-radius: 2px;
-  padding: 2px 8px;
-  box-shadow: rgba(0,0,0,0.25) 2px 2px 6px 0;
-  background: #ffeb8b;
+  max-width: 200px;
+  left: 0;
+  right: 0;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+*[loading-widget] .tag-block-screen {
+  display: none;
+}
+*[loading-widget]:before {
+  content: '';
+  height: 100%;
+  display: none;
+  background: rgba(255,255,255,0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  transition: ease-in-out 1s all;
+}
+*[loading-widget].block {
+  display: none;
+}
+*[loading-widget].block:before,
+*[loading-widget].block-remove:before {
+  display: block;
+}
+*[loading-widget].block .tag-block-screen,
+*[loading-widget].block-remove .tag-block-screen {
+  transition: ease-in-out 1s opacity;
+  display: block;
+}
+*[loading-widget].block-remove:before,
+*[loading-widget].block-remove .tag-block-screen {
+  opacity: 0;
+}
+.efor-layout__footer {
+  position: fixed;
+  bottom: -1px;
+  height: 1px;
+  left: 0;
+  right: 0;
+  width: auto;
+  z-index: 10;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+@media (max-width: 840px) {
+  .efor-layout__footer {
+    position: static;
+    height: auto;
+  }
+}
+.efor-layout__footer .wrapper {
+  position: relative;
+}
+.efor-layout__footer .efor-button--fab {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  transition: ease-in-out all 250ms;
+  display: none;
+}
+.efor-layout__footer .efor-button--fab:hover {
+  bottom: 13px;
+  box-shadow: rgba(0,0,0,0.2) 0 2px 4px 0, rgba(0,0,0,0.2) 0 8px 8px 0;
+}
+.efor-layout__footer .efor-button--fab:active {
+  box-shadow: rgba(0,0,0,0.1) 0 2px 2px 0;
+}
+.efor-layout__footer .efor-button--fab .efor-logo_ef {
+  width: 66%;
+  height: auto;
+  margin: auto;
+  margin-top: 25%;
+}
+.efor-layout__footer .efor-footer-credits {
+  display: block;
+  position: relative;
+}
+.efor-layout__footer .efor-footer-credits img.efor-footer {
+  float: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 170px;
+}
+.efor-layout__footer .efor-footer-credits .powerby {
+  display: none;
+  text-align: center;
+  color: #000;
+  opacity: 0.5;
+  width: 100px;
+  margin: auto;
+}
+.efor-layout__footer .efor-footer-credits .powerby img {
+  max-width: 100%;
+}
+.efor-layout__footer .efor-footer-credits .powerby span {
+  font-size: 12px;
+}
+.efor-layout__footer .efor-footer-credits .powerby .efor-mono {
+  width: 100%;
+  display: block;
+  margin: auto;
+  margin-top: -8px;
+}
+@media (max-width: 840px) {
+  .efor-layout__footer .efor-footer-credits {
+    position: static;
+  }
+  .efor-layout__footer .efor-footer-credits .efor-footer {
+    display: none;
+  }
+  .efor-layout__footer .efor-footer-credits .powerby {
+    display: block;
+  }
 }
 .main {
   padding-top: 50px;

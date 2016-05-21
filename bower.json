@@ -24,8 +24,8 @@
     "test",
     "tests"
   ],
+  "efor-components": "https://github.com/poxstone/efor-components.git",
   "dependencies": {
-    "efor-components": "https://github.com/poxstone/efor-components.git",
     "jquery": "^2.2.2",
     "angular-ui-notification": "^0.1.0",
     "angular-bootstrap-colorpicker": "^3.0.25",
