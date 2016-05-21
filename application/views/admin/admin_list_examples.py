@@ -14,46 +14,12 @@ from decorators import login_required
 from utils import to_dict
 
 
-class AdminListExamples(View):
-
-    @login_required
-    def dispatch_request(self):
-        examples = ExampleModel.query()
-        form = ExampleForm()
-
-        if form.validate_on_submit():
-            example = ExampleModel(
-                example_name=form.example_name.data,
-                example_description=form.example_description.data,
-                added_by=users.get_current_user()
-            )
-            try:
-                example.put()
-                example_id = example.key.id()
-                flash(u'Example %s successfully saved.' % example_id, 'success')
-                return redirect(url_for('list_examples'))
-            except CapabilityDisabledError:
-                flash(u'App Engine Datastore is currently in read-only mode.', 'info')
-                return redirect(url_for('list_examples'))
-        return render_template('list_examples.html', examples=examples, form=form)
-
-
 class PIni(View):
-
     @login_required
     def dispatch_request(self):
         examples = ExampleModel.query()
 
         return render_template('ini.html', examples=examples )
-
-class PIni2(View):
-
-    @login_required
-    def dispatch_request(self):
-        examples = ExampleModel.query()
-
-        return render_template('ini2.html', examples=examples )
-
 
 class PIni_list(View):
 
