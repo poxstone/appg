@@ -6,6 +6,7 @@
   function ctlB($scope) {
     var cb = $scope;
     cb.name = 'controlador B';
+    console.dir(cb.name)
   }
 
 })();

@@ -7,10 +7,9 @@ URL dispatch route mappings and error handlers
 from flask import render_template, redirect
 
 from application import app
-
-
-from application.views.admin.admin_list_examples import PIni,\
+from application.views.admin_list_examples import PIni,\
     PIni_list, PIni_delete, PIni_put, PIni_update
+
 
 # URL dispatch rules
 app.add_url_rule('/', 'ini', view_func=PIni.as_view('ini'), methods=['GET', 'POST'])
