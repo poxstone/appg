@@ -17,10 +17,12 @@ libraries:
   version: "2.6"
 - name: markupsafe
   version: "0.15"
-- name: pycrypto
-  version: 2.6
 - name: endpoints
-  version: 1.0
+  version: "latest"
+- name: pycrypto
+  version: "latest"
+- name: ssl
+  version: latest
 
 inbound_services:
 - warmup

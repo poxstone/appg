@@ -11,7 +11,7 @@ from endpoints_proto_datastore.ndb.model import (EndpointsModel,
                                                  EndpointsAliasProperty)
 
 
-class ExampleModel(ndb.Model):
+class ExampleModel(EndpointsModel):
     """Example Model"""
     example_name = ndb.StringProperty(required=True)
     example_description = ndb.TextProperty(required=True)

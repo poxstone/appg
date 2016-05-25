@@ -34,6 +34,12 @@ else:
 
 # Enable jinja2 loop controls extension
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')
+'''
+from google.appengine.ext.appstats import recording
+from apis import ExampleApi
+api = recording.appstats_wsgi_middleware(
+    endpoints.api_server([ExampleApi], restricted=False,))
+'''
 
 # Pull in URL dispatch routes
 import urls

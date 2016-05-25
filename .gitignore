@@ -11,6 +11,7 @@ venv
 /**/components
 bower_components
 node_modules/*
+lib/*
 
 # Don't store secret keys in version control
 # secret_keys.py
