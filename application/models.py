@@ -6,7 +6,9 @@ App Engine datastore models
 """
 
 
-from google.appengine.ext import ndb
+from google.appengine.ext import ndb, endpoints
+from endpoints_proto_datastore.ndb.model import (EndpointsModel,
+                                                 EndpointsAliasProperty)
 
 
 class ExampleModel(ndb.Model):

@@ -5,3 +5,4 @@ Pillow
 jinja2
 simplejson
 unittest2
+git+https://github.com/GoogleCloudPlatform/endpoints-proto-datastore.git
