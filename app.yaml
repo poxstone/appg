@@ -48,7 +48,7 @@ handlers:
 - url: /efor-components
   static_dir: ../efor-components
 
-- url: .*
+- url: /ini/.*
   script: run.application.app
 
 - url: /_ah/spi/.*

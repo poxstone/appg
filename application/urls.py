@@ -12,11 +12,11 @@ from application.views.admin_list_examples import PIni,\
 
 
 # URL dispatch rules
-app.add_url_rule('/', 'ini', view_func=PIni.as_view('ini'), methods=['GET', 'POST'])
-app.add_url_rule('/ini_list', 'ini_list', view_func=PIni_list.as_view(''), methods=['GET', 'POST'])
-app.add_url_rule('/ini_delete', 'ini_delete', view_func=PIni_delete.as_view(''), methods=['POST','DELETE'])
-app.add_url_rule('/ini_put', 'ini_put', view_func=PIni_put.as_view(''), methods=['PUT', 'POST'])
-app.add_url_rule('/ini_update', 'ini_update', view_func=PIni_update.as_view(''), methods=['POST','PUT'])
+app.add_url_rule('/ini/', 'ini', view_func=PIni.as_view('ini'), methods=['GET', 'POST'])
+app.add_url_rule('/ini/list', 'ini_list', view_func=PIni_list.as_view(''), methods=['GET', 'POST'])
+app.add_url_rule('/ini/delete', 'ini_delete', view_func=PIni_delete.as_view(''), methods=['POST','DELETE'])
+app.add_url_rule('/ini/put', 'ini_put', view_func=PIni_put.as_view(''), methods=['PUT', 'POST'])
+app.add_url_rule('/ini/update', 'ini_update', view_func=PIni_update.as_view(''), methods=['POST','PUT'])
 
 
 # Error handlers

@@ -7,7 +7,7 @@
   function ApiRest($log, $window, $http, notification) {
     this.getList = function(callbacks) {
 
-      $http( {url:'/ini_list', method:'POST' }).then(
+      $http( {url:'/ini/list', method:'POST' }).then(
           function(response) {
             var res = response.data.results;
 
@@ -32,7 +32,7 @@
 
     this.saveList = function(to_send, callbacks) {
       var data = angular.copy(to_send);
-      var url = data.example_id ? '/ini_update' : '/ini_put';
+      var url = data.example_id ? '/ini/update' : '/ini/put';
       var options = {
         url: url,
         method:'POST',
@@ -66,7 +66,7 @@
       var data = angular.copy(to_send);
       $log.debug('elemento: ',data);
       var options = {
-        url:'/ini_delete',
+        url:'/ini/delete',
         method:'POST',
         headers: {'Content-Type':'application/json'},
         data:data
