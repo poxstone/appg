@@ -35,8 +35,9 @@ else:
 # Enable jinja2 loop controls extension
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
-#from APPG import GreetingApi, AuthedGreetingApi
-#api = endpoints.api_server([GreetingApi, AuthedGreetingApi])
+import endpoints
+from apis import GreetingApi, AuthedGreetingApi
+api = endpoints.api_server([GreetingApi, AuthedGreetingApi])
 
 # Pull in URL dispatch routes
 import urls
