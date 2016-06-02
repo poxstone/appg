@@ -52,4 +52,4 @@ handlers:
   script: run.application.app
 
 - url: /_ah/spi/.*
-  script: apis.api
+  script: run.api
