@@ -1963,10 +1963,17 @@ td[ng-click] {
   bottom: 20px;
   right: 30px;
   transition: ease-in-out all 250ms;
+  background: #fff;
+  border-radius: 1000px;
+  size: 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  box-shadow: rgba(0,0,0,0.25) 0 0 3px 0;
+  text-align: center;
   display: none;
 }
 .efor-layout__footer .efor-button--fab:hover {
-  bottom: 13px;
+  bottom: 25px;
   box-shadow: rgba(0,0,0,0.2) 0 2px 4px 0, rgba(0,0,0,0.2) 0 8px 8px 0;
 }
 .efor-layout__footer .efor-button--fab:active {
@@ -1975,12 +1982,14 @@ td[ng-click] {
 .efor-layout__footer .efor-button--fab .efor-logo_ef {
   width: 66%;
   height: auto;
-  margin: auto;
-  margin-top: 25%;
+  margin: -5%;
+  margin-top: -10%;
+  vertical-align: middle;
 }
 .efor-layout__footer .efor-footer-credits {
   display: block;
   position: relative;
+  text-decoration: none;
 }
 .efor-layout__footer .efor-footer-credits img.efor-footer {
   float: right;
@@ -2019,6 +2028,21 @@ td[ng-click] {
   .efor-layout__footer .efor-footer-credits .powerby {
     display: block;
   }
+}
+.social-icons {
+  text-align: center;
+  padding: 0 0 10px;
+}
+.social-icons a {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  display: inline-block;
+  margin: 4px;
+}
+.social-icons img {
+  width: 24px;
+  height: auto;
 }
 .main {
   padding-top: 50px;
@@ -2542,13 +2566,4 @@ button.btn-add {
 }
 .ngi-inspector .ngi-collapsed .ngi-caret {
   background-position-y: 0px !important;
-}
-#Firebug div,
-#Firebug div .Row Debug,
-#Firebug div span,
-#Firebug div .Left,
-#Firebug div .Console,
-#Firebug div .Monitor,
-#Firebug div .Row {
-  font-size: 11px !important;
 }

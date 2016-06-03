@@ -11,7 +11,7 @@ import unittest
 
 from google.appengine.ext import testbed
 
-from application import app
+from appg import app
 
 
 class DemoTestCase(unittest.TestCase):

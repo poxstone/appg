@@ -6,8 +6,8 @@ URL dispatch route mappings and error handlers
 """
 from flask import render_template, redirect
 
-from application import app
-from application.views.admin_list_examples import PIni,\
+from appg import app
+from appg.views.admin_list_examples import PIni,\
     PIni_list, PIni_delete, PIni_put, PIni_update
 
 

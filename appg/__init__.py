@@ -1,21 +1,18 @@
-"""
-Initialize Flask app
 
-"""
 from flask import Flask
 import os
 from flask_debugtoolbar import DebugToolbarExtension
 from werkzeug.debug import DebuggedApplication
 
-app = Flask('application')
+app = Flask(__name__)
 
 if os.getenv('FLASK_CONF') == 'TEST':
-    app.config.from_object('application.settings.Testing')
+    app.config.from_object('appg.settings.Testing')
 
 elif 'SERVER_SOFTWARE' in os.environ and os.environ['SERVER_SOFTWARE'].startswith('Dev'):
     # Development settings
-    app.config.from_object('application.settings.Production')
-    #app.config.from_object('application.settings.Development')
+    app.config.from_object('appg.settings.Production')
+    #app.config.from_object('appg.settings.Development')
     # Flask-DebugToolbar
     toolbar = DebugToolbarExtension(app)
 
@@ -30,7 +27,7 @@ elif 'SERVER_SOFTWARE' in os.environ and os.environ['SERVER_SOFTWARE'].startswit
         return dict(profiler_includes=templatetags.profiler_includes())
     app.wsgi_app = profiler.ProfilerWSGIMiddleware(app.wsgi_app)
 else:
-    app.config.from_object('application.settings.Production')
+    app.config.from_object('appg.settings.Production')
 
 # Enable jinja2 loop controls extension
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')

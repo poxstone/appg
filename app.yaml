@@ -29,27 +29,27 @@ inbound_services:
 
 handlers:
 - url: /favicon.ico
-  static_files: application/static/img/favicon.ico
-  upload: application/static/img/favicon.ico
+  static_files: appg/static/img/favicon.ico
+  upload: appg/static/img/favicon.ico
 
 - url: /robots.txt
-  static_files: application/static/robots.txt
-  upload: application/static/robots.txt
+  static_files: appg/static/robots.txt
+  upload: appg/static/robots.txt
 
 - url: /gae_mini_profiler/static
   static_dir: lib/gae_mini_profiler/static
 
 - url: /gae_mini_profiler/.*
-  script: lib.gae_mini_profiler.main.application
+  script: lib.gae_mini_profiler.main.appg
 
 - url: /static
-  static_dir: application/static
+  static_dir: appg/static
 
 - url: /efor-components
   static_dir: ../efor-components
 
 - url: /ini/.*
-  script: run.application.app
+  script: run.appg.app
 
 - url: /_ah/spi/.*
-  script: run.application.api
+  script: run.appg.api
